@@ -110,7 +110,7 @@ func (cll *CLL) Pop(index int) (interface{}, error) {
 }
 
 //Search returns index of the data, if data is not on the list return -1
-func (cll CLL) Search(data int) int {
+func (cll CLL) Search(data interface{}) int {
 	if cll.size == 0 {
 		return -1
 	}
