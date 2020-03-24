@@ -2,7 +2,6 @@ package circularlist
 
 import (
 	"fmt"
-	"strconv"
 )
 
 //CLL is a circular collection of data elements
@@ -22,7 +21,7 @@ func NewCLL() *CLL {
 }
 
 //AddFirst inserts data to the begining of the list
-func (cll *CLL) AddFirst(data int) {
+func (cll *CLL) AddFirst(data interface{}) {
 	newNode := node{
 		next:  nil,
 		value: data,
@@ -38,7 +37,7 @@ func (cll *CLL) AddFirst(data int) {
 }
 
 //Append inserts data to the end of the list
-func (cll *CLL) Append(data int) {
+func (cll *CLL) Append(data interface{}) {
 	if cll.size == 0 {
 		cll.AddFirst(data)
 		return
@@ -54,7 +53,7 @@ func (cll *CLL) Append(data int) {
 }
 
 //Get returns data
-func (cll CLL) Get(index int) (int, error) {
+func (cll CLL) Get(index int) (interface{}, error) {
 	if cll.size == 0 {
 		return 0, fmt.Errorf("Pop! List is empty")
 	}
@@ -90,7 +89,7 @@ func (cll *CLL) Set(index int, data int) error {
 }
 
 //Pop deletes data from lisr and returns it
-func (cll *CLL) Pop(index int) (int, error) {
+func (cll *CLL) Pop(index int) (interface{}, error) {
 	if cll.size == 0 {
 		return 0, fmt.Errorf("Pop! List is empty")
 	}
@@ -144,10 +143,10 @@ func (cll CLL) String() string {
 	}
 	var currentNode *node
 	currentNode = cll.tail.next.next
-	data := strconv.Itoa(currentNode.value)
+	data := fmt.Sprintf("%v", currentNode.value)
 	for currentNode.next != cll.tail.next.next {
 		currentNode = currentNode.next
-		data = data + ", " + strconv.Itoa(currentNode.value)
+		data = data + ", " + fmt.Sprintf("%v", currentNode.value)
 	}
 	return "[" + data + "]"
 }
