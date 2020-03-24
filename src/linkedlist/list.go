@@ -2,7 +2,6 @@ package linkedlist
 
 import (
 	"fmt"
-	"strconv"
 )
 
 //LinkedList is a linear collection of data elements
@@ -22,7 +21,7 @@ func NewLinkedList() *LinkedList {
 }
 
 //AddFirst inserts data to the begining of the list
-func (ll *LinkedList) AddFirst(data int) {
+func (ll *LinkedList) AddFirst(data interface{}) {
 	newNode := node{
 		next:  ll.head.next,
 		value: data,
@@ -32,7 +31,7 @@ func (ll *LinkedList) AddFirst(data int) {
 }
 
 //Append inserts data to the end of the list
-func (ll *LinkedList) Append(data int) {
+func (ll *LinkedList) Append(data interface{}) {
 	if ll.size == 0 {
 		ll.AddFirst(data)
 		return
@@ -50,7 +49,7 @@ func (ll *LinkedList) Append(data int) {
 }
 
 //Get returns data
-func (ll LinkedList) Get(index int) (int, error) {
+func (ll LinkedList) Get(index int) (interface{}, error) {
 	if ll.size == 0 {
 		return 0, fmt.Errorf("Pop! List is empty")
 	}
@@ -67,7 +66,7 @@ func (ll LinkedList) Get(index int) (int, error) {
 }
 
 //Pop deletes data from lisr and returns it
-func (ll *LinkedList) Pop(index int) (int, error) {
+func (ll *LinkedList) Pop(index int) (interface{}, error) {
 	if ll.size == 0 {
 		return 0, fmt.Errorf("Pop! List is empty")
 	}
@@ -88,7 +87,7 @@ func (ll *LinkedList) Pop(index int) (int, error) {
 }
 
 //Search returns index of the data, if data is not on the list return -1
-func (ll LinkedList) Search(data int) int {
+func (ll LinkedList) Search(data interface{}) int {
 	if ll.size == 0 {
 		return -1
 	}
@@ -117,10 +116,10 @@ func (ll LinkedList) String() string {
 		return "[]"
 	}
 	currentNode := ll.head.next
-	data := strconv.Itoa(currentNode.value)
+	data := fmt.Sprintf("%v", currentNode.value)
 	for currentNode.next != nil {
 		currentNode = currentNode.next
-		data = data + ", " + strconv.Itoa(currentNode.value)
+		data = data + ", " + fmt.Sprintf("%v", currentNode.value)
 	}
 	return "[" + data + "]"
 }
