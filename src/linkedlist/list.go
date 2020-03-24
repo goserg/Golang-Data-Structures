@@ -33,13 +33,13 @@ func (ll *LinkedList) AddFirst(data int) {
 
 //Append inserts data to the end of the list
 func (ll *LinkedList) Append(data int) {
-	newNode := node{
-		next:  nil,
-		value: data,
-	}
 	if ll.size == 0 {
 		ll.AddFirst(data)
 		return
+	}
+	newNode := node{
+		next:  nil,
+		value: data,
 	}
 	currentNode := ll.head.next
 	for currentNode.next != nil {
@@ -112,8 +112,7 @@ func (ll *LinkedList) Clear() {
 	ll.size = 0
 }
 
-// Repr returns string representation of the list
-func (ll LinkedList) Repr() string {
+func (ll LinkedList) String() string {
 	if ll.size == 0 {
 		return "[]"
 	}
@@ -124,10 +123,6 @@ func (ll LinkedList) Repr() string {
 		data = data + ", " + strconv.Itoa(currentNode.value)
 	}
 	return "[" + data + "]"
-}
-
-func (ll LinkedList) String() string {
-	return fmt.Sprint(ll.Repr())
 }
 
 //GetSize returns size of the linked list

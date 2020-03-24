@@ -3,15 +3,7 @@ Golang learning project.
 
 My implementation of some basic Data Structures from scratch.
 
-1. Linked List:  
-- AddFirst  
-- Append  
-- Get  
-- Pop  
-- Search  
-- Clear  
-	
-2. Stack:  
+1. Stack:  
 - Push  
 - Pop  
 - Peek  
@@ -19,3 +11,20 @@ My implementation of some basic Data Structures from scratch.
 - IsEmpty  
 - Clear  
 - GetSize  
+
+2. Linked List:  
+- AddFirst  
+- Append  
+- Get  
+- Pop  
+- Search  
+- Clear  
+
+3. Circular Linked List  
+- AddFirst  
+- Append  
+- Get  
+- Set  
+- Pop  
+- Search  
+- Clear  
