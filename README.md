@@ -28,3 +28,12 @@ My implementation of some basic Data Structures from scratch.
 - Pop  
 - Search  
 - Clear  
+
+4. Queue  
+- Push  
+- Peek  
+- Pop  
+- Search  
+- Clear  
+- GetSize  
+- IsEmpty  
